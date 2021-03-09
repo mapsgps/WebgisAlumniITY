@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Webgis Alumni I T Y</title>
+	<!-- map style -->
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.css">
+	<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.control.layers.tree@1.0.0/L.Control.Layers.Tree.css"> -->
+  <link rel="stylesheet" href="js/defaultExtent/L.Control.Layers.Tree.css">
+  <link rel="stylesheet" href="js/defaultExtent/leaflet.defaultextent.css">
+  <link rel="stylesheet" href="js/defaultExtent/L.Control.MousePosition.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.6.0/leaflet.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.js"></script>
+	<!--<script src="https://cdn.jsdelivr.net/npm/leaflet.control.layers.tree@1.0.0/L.Control.Layers.Tree.js"></script>-->
+  
+  <link rel="stylesheet" href="js/defaultExtent/Leaflet.PolylineMeasure.css" />
+  <script src="js/defaultExtent/Leaflet.PolylineMeasure.js"></script>
+
+  <script src="js/defaultExtent/L.Control.Layers.Tree.js"></script>
+  <script src="js/defaultExtent/leaflet.defaultextent.js"></script>
+  <script src="js/defaultExtent/L.Control.MousePosition.js"></script>
+  <script src="js/defaultExtent/L.Graticule.js"></script>
+  <style>
+        html, body, #map {
+            height: 96%;
+            width: 100%;
+        }
+   </style>
+	<!-- bootstrap style -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+	<link rel="icon" sizes="196x196" href="img/Logo_ITY.png">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="index.html">
+  	<img src="img/Logo_ITY.png" width="50" class="d-inline-block align-top" alt="">
+    <span class="navbar-text text-light"><small><b>Alumni  I T Y (d/h STTL)</b> </small> <br>
+    </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav navbar-nav ml-left mr-4">
+
+
+      <button type="button" class="btn btn-outline-success my-2 my-sm-0" data-toggle="modal" data-target="#aboutModal">Klik Info Alumni</button>
+    </form>
+  </div>
+</nav>
+
+<div id="map">
+	<script src="js/map.js"></script>
+ 
+</div>
+<!-- Modal -->
+<div class="modal fade" id="featureModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="modal-head justify-content-between">
+              <h4 class="modal-title font-weight-light text-info" id="feature-title">Title</h4>
+              <br>
+              <div id="feature-info"></div>
+              </div> 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal">Tutup</button>
+          </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Popup Map End -->
+<!-- Modal About -->
+<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <CENTER><img src="img/Logo_ITY.png" width="30" class="d-inline-block align-top" alt=""></CENTER> &nbsp;
+        <h5 class="modal-title" id="exampleModalLabel">Tentang Webgis</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       <h6><CENTER><b>INFORMASI PERSEBARAN ALUMNI</b> </br>
+        <b>INSTITUT TEKNOLOGI YOGYAKARTA</b> </CENTER></h6>
+        <CENTER> 
+        <a  href="https://drive.google.com/file/d/1b00YaR4_OgQX-tT9aOuYcBUW1DQ381ZP/view?usp=sharing" target='_blank'><b>- TAMBAH DATA -</b></a> </CENTER>
+        <CENTER>
+       <a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQB_VzAmAlGFSvr7dJATzgmc4-JpG-p_t8x3GIxWTBfErX9v9BmsXNeZwRHGX4iF1DW1iyHOXQURZN6/pubhtml" target='_blank'><b>- LIHAT DATA -</b></a> </CENTER>
+            <h6><p>Web ini hanya semata untuk mengetahui persebaran Alumni INSTITUT TEKNOLOGI YOGYAKARTA dengan format Spasial</br>
+            Mohon diisi klik <b>TAMBAH DATA</b> dan siapkan Lokasi Koordinat Rumah/Instansi Anda dengan Format Desimal.
+            Tulis koordinat dengan: 
+            <b>Diawali TANDA PETIK (') dan dipisah TANDA TITIK (.) </b><p>
+            <p>- LU/LS: Lintang Utara contoh : <b>'2.12345</b> dan Lintang Selatan setelah tanda petik diberi tanda min (-) contoh:  <b>'-7.12345</b> <br>
+            - Bujur (BT): Contoh: <b>'110.12345</b><p>
+            <p>Apabila kesulitan lihat di web kemudian arahkan/zoom-in lokasi rumah/instansi Anda, klik akan muncul Koordinat Desimal, catat/salin masukan di Form</p>
+            <p>Untuk menjaga privacy: Data alamat rumah, no.telp dan email tidak akan ditampilkan dalam webgis<p>
+            <b>Kesalahan penulisan koordinat berakibat tidak masuk ke Web GIS Alumni </b></p></h6>
+
+        <CENTER><a href="https://wa.me/628562870142" target='_blank'><b>Info Aplikasi Lebih Lanjut?</b></a></CENTER></br>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+      </div> 
+    </div>
+  </div>
+</div>
+<!-- Modal About END -->
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+</html>
